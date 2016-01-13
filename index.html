@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TP3 [Backbone] Gestionnaire d'absences</title>
+	<!-- bootstrap css -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<style>
+		#app {
+			overflow: hidden;
+		}
+		.student {
+			height: 170px;
+		}
+		.student img {
+			width: 150px;
+			max-height: 150px;
+			border-radius: 50%;
+		}
+		.label {
+			font-size: 18px;
+			padding: 10px;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Liste de mes films</h1>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-6 panel panel-default" >
+					<form action="" id="addStudent">
+						<h2>Ajouter un nouvel étudiant</h2>
+						<div class="form-group">
+							<label class="control-label col-md-4">Nom</label>
+							<input type="text" placeholder="Nom de famille" class="student-lastname" class="form-control col-md-8" required>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-4">Prénom</label>
+							<input type="text" placeholder="Prénom" class="student-firstname" class="form-control col-md-8" required>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-4">Avatar URL</label>
+							<input type="text" placeholder="Avatar URL" class="student-avatar" class="form-control col-md-8">
+						</div>
+						<div class="form-group">
+							<input type="submit" class="" value="Ajouter" required>
+						</div>
+					</form>
+				</div>
+
+				<div class="stats col-md-6 panel panel-default">
+					<h2 class="label label-info col-md-8">Nombre d'étudiants : <span class="student-count">0</span></h2>
+					<h2 class="label label-info col-md-8">Nombre d'étudiants présents :  <span class="student-present-count">0</span> </h2>
+					<h2 class="label label-info col-md-8">Nombre d'étudiants absents : <span class="student-absent-count">0</span></h2>
+				</div>
+			</div>
+		</div>
+		<div class="student-list"></div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js"></script>
+	<script src="libs/backboneLocalStorage.min.js"></script>
+
+
+	<script src="scripts/models/student.js"></script>
+	<script src="scripts/collections/students.js"></script>
+	<script src="scripts/views/student-list.js"></script>
+	<script src="scripts/app.js"></script>
+
+</body>
+</html>
