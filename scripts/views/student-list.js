@@ -45,6 +45,7 @@ var StudentListView = Backbone.View.extend({
 
 		var $input     = $(e.currentTarget);
 		var inputValue = $input.val();
+		// get the student's unique id store in data-cid attribute
 		var cid        = $input.parents('div.student').attr('data-cid');
 		var student    = this.StudentCollection.findWhere({ cid: cid });
 
@@ -62,13 +63,6 @@ var StudentListView = Backbone.View.extend({
 
 		var nicename = '<h2>'+student.firstname+' '+student.lastname+'</h2>';
 		var avatar   = '<img class="col-md-6 pull-left avatar" src="'+student.avatar+'" />';
-		var present  = '';
-		var absent   = 'checked';
-
-		if (student.present) {
-			present = 'checked';
-			absent  = '';
-		}
 
 		var studentTemplate = '\
 			<div class="panel panel-default col-md-4 student" data-cid="'+student.cid+'">\
@@ -77,9 +71,9 @@ var StudentListView = Backbone.View.extend({
 					'+nicename+'\
 					<form>\
 						<label>Présent</label>\
-						<input '+ present +' type="radio" class="student-present" name="student" value="present" />\
+						<input '+ (student.present ? 'checked' : '') +' type="radio" class="student-present" name="student" value="present" />\
 						<label>Absent</label>\
-						<input '+ absent +' type="radio" class="student-absent" name="student" value="absent" />\
+						<input '+ (student.present ? '' : 'checked') +' type="radio" class="student-absent" name="student" value="absent" />\
 					</form>\
 				</div>\
 			</div>\
@@ -124,7 +118,6 @@ var StudentListView = Backbone.View.extend({
 			var $studentTemplate = this.getStudentTemplate(student);
 
 			$studentList.append($studentTemplate);
-
 		}
 
 		this.updateCounters();
