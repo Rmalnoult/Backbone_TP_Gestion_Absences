@@ -53,6 +53,7 @@ var StudentListView = Backbone.View.extend({
 			student.set({
 				present: inputValue == 'present' ? true : false,
 			});
+			student.save();
 		}
 
 		this.updateCounters();
